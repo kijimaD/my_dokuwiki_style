@@ -20,7 +20,8 @@ if (!defined('DOKU_INC')) die();
         <h1><?php
             // get logo either out of the template images folder or data/media folder
             $logoSize = array();
-            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize);
+            /* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
+	    $logo = tpl_getMediaFile(array('images/tree.png'), false, $logoSize);
 
             // display logo and wiki title in a link to the home page
             tpl_link(
@@ -28,7 +29,7 @@ if (!defined('DOKU_INC')) die();
                 '<img src="'.$logo.'" '.$logoSize[3].' alt="" style="width:100px;"/> <span>'.$conf['title'].'</span>',
                 'accesskey="h" title="[H]"'
             );
-        ?></h1>
+            ?></h1>
         <?php if ($conf['tagline']): ?>
             <p class="claim"><?php echo $conf['tagline']; ?></p>
         <?php endif ?>
