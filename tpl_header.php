@@ -66,16 +66,15 @@ if (!defined('DOKU_INC')) die();
 				<?php endif ?>
 
 				<!-- SITE TOOLS -->
-				<!-- <div id="dokuwiki__sitetools">
-					 <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-					 <?php tpl_searchform(); ?>
-					 <div class="mobileTools">
-					 <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-					 </div>
-					 <ul>
-					 <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-					 </ul>
-					 </div> -->
+				<div id="dokuwiki__sitetools">
+					<?php tpl_searchform(); ?>
+					<div class="mobileTools">
+						<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+					</div>
+					<ul>
+						<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+					</ul>
+				</div>
 
 			<!-- BREADCRUMBS -->
 			<?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
