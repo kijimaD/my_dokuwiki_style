@@ -15,76 +15,84 @@ $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
-<head>
-    <meta charset="utf-8" />
-    <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+	<head>
+		<meta charset="utf-8" />
+		<title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+		<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
-</head>
+		<?php tpl_metaheaders() ?>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<?php echo tpl_favicon(array('favicon', 'mobile')) ?>
+		<?php tpl_includeFile('meta.html') ?>
+	</head>
 
-<body>
-    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
-        echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+	<body>
+		<?php include('tpl_header.php') ?>
+		<div class="container">
+			<div class="row">
 
-        <?php include('tpl_header.php') ?>
+				<!-- サイドバー -->
+				<div class="col-3">
+					<!-- <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php																			   echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>"> -->
 
-        <div class="wrapper group">
 
-            <?php if($showSidebar): ?>
-                <!-- ********** ASIDE ********** -->
-                <div id="dokuwiki__aside"><div class="pad aside include group">
-                    <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                    <div class="content"><div class="group">
-                        <?php tpl_flush() ?>
-                        <?php tpl_includeFile('sidebarheader.html') ?>
-                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
-                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                    </div></div>
-                </div></div><!-- /aside -->
-            <?php endif; ?>
 
-            <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="pad group">
-                <?php html_msgarea() ?>
+					<?php if($showSidebar): ?>
+						<!-- ********** ASIDE ********** -->
+						<div id="dokuwiki__aside"><div class="pad aside include group">
+							<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+							<div class="content"><div class="group">
+								<?php tpl_flush() ?>
+								<?php tpl_includeFile('sidebarheader.html') ?>
+								<?php tpl_include_page($conf['sidebar'], true, true) ?>
+								<?php tpl_includeFile('sidebarfooter.html') ?>
+							</div></div>
+						</div></div><!-- /aside -->
+					<?php endif; ?>
+				</div>
 
-                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+				<!-- コンテンツ -->
+				<div class="col-9">
+					<!-- ********** CONTENT ********** -->
+					<div id="dokuwiki__content"><div class="pad group">
+						<?php html_msgarea() ?>
 
-                <div class="page group">
-                    <?php tpl_flush() ?>
-                    <?php tpl_includeFile('pageheader.html') ?>
-                    <!-- wikipage start -->
-                    <?php tpl_content() ?>
-                    <!-- wikipage stop -->
-                    <?php tpl_includeFile('pagefooter.html') ?>
-                </div>
+						<div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
-                <div class="docInfo"><?php tpl_pageinfo() ?></div>
+						<div class="page group">
+							<?php tpl_flush() ?>
+							<?php tpl_includeFile('pageheader.html') ?>
+							<!-- wikipage start -->
+							<?php tpl_content() ?>
+							<!-- wikipage stop -->
+							<?php tpl_includeFile('pagefooter.html') ?>
+						</div>
 
-                <?php tpl_flush() ?>
-            </div></div><!-- /content -->
+						<div class="docInfo"><?php tpl_pageinfo() ?></div>
 
-            <hr class="a11y" />
+						<?php tpl_flush() ?>
+					</div></div><!-- /content -->
+				</div>
 
-            <!-- PAGE ACTIONS -->
-            <div id="dokuwiki__pagetools">
-                <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
-                <div class="tools">
-                    <ul>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /wrapper -->
+				<hr class="a11y" />
 
-        <?php include('tpl_footer.php') ?>
-    </div></div><!-- /site -->
+				<!-- PAGE ACTIONS -->
+				<div id="dokuwiki__pagetools">
+					<h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+					<div class="tools">
+						<ul>
+							<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+						</ul>
+					</div>
+				</div>
 
-    <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
-</body>
+				<?php include('tpl_footer.php') ?>
+			</div></div><!-- /site -->
+
+			<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+			<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
+		</div>
+		</div>
+	</body>
 </html>
