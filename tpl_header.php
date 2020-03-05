@@ -17,17 +17,11 @@ if (!defined('DOKU_INC')) die();
 		<!-- サブコンポーネント -->
 		<div class="container headings group">
 
-			<!-- ブランド -->
+			<!-- ブランド ..ルートの指定方法がわからないのでphpを使う意味がない状態になっている。-->
 			<?php
-			// get logo either out of the template images folder or data/media folder
-			$logoSize = array();
-			/* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
-			// display logo and wiki title in a link to the home page
-			tpl_link(
-				wl(),
-				'<a class="navbar-brand" style="font-weight:900;">'.$conf['title'].'</a>',
-				'accesskey="h" title="[H]"'
-			);
+				echo '<a class="navbar-brand" style="font-weight:900;" href="'
+					 .'/doku.php?id=start">'
+                     .$conf['title'].'</a>';
 			?>
 
 				<!-- タグライン？ -->
@@ -57,35 +51,40 @@ if (!defined('DOKU_INC')) die();
 				<?php
 				if (!empty($_SERVER['REMOTE_USER'])) {
 					echo '<li class="nav-item mx-2">';
-					tpl_userinfo(); /* 'Logged in as ...' */
+					/* echo str_replace($_SERVER['REMOTE_USER'], '::marker', ''); */
+					echo $_SERVER['REMOTE_USER'];
 					echo '</li>';
 				}
 				/* echo (new \dokuwiki\Menu\UserMenu())->getListItems('action '); */
 				/* foreachが効かない
-				$items = (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+				   $items = (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
 				   foreach ($items as $item) {
 				   echo '<li>'
 				   .'<a href="'.$item->getLink().'">'
 				   .'</a></li>';
 				   }
-				*/
+				 */
 				?>
-				<li class="action recent nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=recent" title="最近の変更 [r]" rel="nofollow" accesskey="r">最近の変更</a></li>
-				<li class="action media nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=media&amp;ns=" title="メディアマネージャー" rel="nofollow">メディアマネージャー</a></li>
-				<li class="action index nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=index" title="サイトマップ [x]" accesskey="x">サイトマップ</a></li>
-	</div>
+
+				<!-- ドロップダウン(ユーザメニュー) -->
+				<li class="nav-item mx-2 dropdown">
+					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="action recent nav-item mx-2" href="/doku.php?id=start&amp;do=recent" title="最近の変更 [r]" rel="nofollow" accesskey="r">最近の変更</a>
+						<a class="action media nav-item mx-2" href="/doku.php?id=start&amp;do=media&amp;ns=" title="メディアマネージャー" rel="nofollow">メディアマネージャー</a>
+						<a class="action index nav-item mx-2" href="/doku.php?id=start&amp;do=index" title="サイトマップ [x]" accesskey="x">サイトマップ</a>
+					</div>
+				</li>
 			<?php endif ?>
 
-				<!-- SITE TOOLS -->
-				<div id="dokuwiki__sitetools">
-					<?php tpl_searchform(); ?>
-					<!-- <div class="mobileTools">
-						 <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-						 </div> -->
-					<ul>
-						<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-					</ul>
-				</div>
+			<!-- SITE TOOLS -->
+			<!-- <div id="dokuwiki__sitetools">
+				 <?php tpl_searchform(); ?>
+				 <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+				 <ul>
+				 <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+				 </ul>
+				 </div> -->
 
 			<!-- BREADCRUMBS -->
 			<?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
