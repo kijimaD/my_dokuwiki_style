@@ -47,28 +47,17 @@ if (!defined('DOKU_INC')) die();
 		<!-- トップメニュー -->
 		<ul class="navbar-nav py-3">
 			<!-- USER TOOLS -->
-			<?php if ($conf['useacl']): ?>
-				<?php
-				if (!empty($_SERVER['REMOTE_USER'])) {
-					echo '<li class="nav-item mx-2">';
-					/* echo str_replace($_SERVER['REMOTE_USER'], '::marker', ''); */
-					echo $_SERVER['REMOTE_USER'];
-					echo '</li>';
-				}
-				/* echo (new \dokuwiki\Menu\UserMenu())->getListItems('action '); */
-				/* foreachが効かない
-				   $items = (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
-				   foreach ($items as $item) {
-				   echo '<li>'
-				   .'<a href="'.$item->getLink().'">'
-				   .'</a></li>';
-				   }
-				 */
-				?>
 
 				<!-- ドロップダウン(ユーザメニュー) -->
 				<li class="nav-item mx-2 dropdown">
-					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<?php if ($conf['useacl']): ?>
+							<?php
+							if (!empty($_SERVER['REMOTE_USER'])) {
+							echo $_SERVER['REMOTE_USER'];
+							}
+						?>
+					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="action recent nav-item mx-2" href="/doku.php?id=start&amp;do=recent" title="最近の変更 [r]" rel="nofollow" accesskey="r">最近の変更</a>
 						<a class="action media nav-item mx-2" href="/doku.php?id=start&amp;do=media&amp;ns=" title="メディアマネージャー" rel="nofollow">メディアマネージャー</a>
@@ -78,13 +67,13 @@ if (!defined('DOKU_INC')) die();
 			<?php endif ?>
 
 			<!-- SITE TOOLS -->
-			<!-- <div id="dokuwiki__sitetools">
-				 <?php tpl_searchform(); ?>
-				 <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-				 <ul>
-				 <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-				 </ul>
-				 </div> -->
+			<div id="dokuwiki__sitetools">
+				<?php tpl_searchform(); ?>
+				<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+				<ul>
+					<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+				</ul>
+			</div>
 
 			<!-- BREADCRUMBS -->
 			<?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
