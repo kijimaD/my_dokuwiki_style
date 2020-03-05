@@ -9,15 +9,14 @@ if (!defined('DOKU_INC')) die();
 
 <!-- ********** HEADER ********** -->
 <div id="dokuwiki__header"><div class="pad group">
-
     <?php tpl_includeFile('header.html') ?>
+	<nav class="navbar navbar-expand-md navbar-light sticky-top">
+	<div class="container">
 
     <div class="headings group">
-        <ul class="a11y skip">
-            <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-        </ul>
 
-        <h1><?php
+		<!-- brand -->
+        <h1 class="navbar-brand"><?php
             // get logo either out of the template images folder or data/media folder
             $logoSize = array();
             /* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
@@ -34,51 +33,65 @@ if (!defined('DOKU_INC')) die();
         <?php endif ?>
     </div>
 
-    <div class="tools group">
-        <!-- USER TOOLS -->
-        <?php if ($conf['useacl']): ?>
-            <div id="dokuwiki__usertools">
-                <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
-                <ul>
-                    <?php
-                        if (!empty($_SERVER['REMOTE_USER'])) {
-                            echo '<li class="user">';
-                            tpl_userinfo(); /* 'Logged in as ...' */
-                            echo '</li>';
-                        }
-                        echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
-                    ?>
-                </ul>
-            </div>
-        <?php endif ?>
+	<!-- ハンバーガーボタン -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- SITE TOOLS -->
-        <div id="dokuwiki__sitetools">
-            <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-            <?php tpl_searchform(); ?>
-            <div class="mobileTools">
-                <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-            </div>
-            <ul>
-                <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-            </ul>
-        </div>
+    <ul class="a11y skip">
+        <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
+    </ul>
 
-    </div>
+	<div class="collapse navbar-collapse" id="navbar-content">
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<ul class="navbar-nav py-3">
+			<div class="tools group">
+				<!-- USER TOOLS -->
+				<?php if ($conf['useacl']): ?>
+					<div id="dokuwiki__usertools">
+							<?php
+							if (!empty($_SERVER['REMOTE_USER'])) {
+								echo '<li class="user nav-item mx-2">';
+								tpl_userinfo(); /* 'Logged in as ...' */
+								echo '</li>';
+							}
+							echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+							?>
+					</div>
+				<?php endif ?>
 
-    <!-- BREADCRUMBS -->
-    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-        <div class="breadcrumbs">
-            <?php if($conf['youarehere']): ?>
-                <div class="youarehere"><?php tpl_youarehere() ?></div>
-            <?php endif ?>
-            <?php if($conf['breadcrumbs']): ?>
-                <div class="trace"><?php tpl_breadcrumbs() ?></div>
-            <?php endif ?>
-        </div>
-    <?php endif ?>
+				<!-- SITE TOOLS -->
+				<div id="dokuwiki__sitetools">
+					<h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+					<?php tpl_searchform(); ?>
+					<div class="mobileTools">
+						<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+					</div>
+					<ul>
+						<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+					</ul>
+				</div>
+
+			</div>
+
+			<!-- BREADCRUMBS -->
+			<?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+				<div class="breadcrumbs">
+					<?php if($conf['youarehere']): ?>
+						<div class="youarehere"><?php tpl_youarehere() ?></div>
+					<?php endif ?>
+					<?php if($conf['breadcrumbs']): ?>
+						<div class="trace"><?php tpl_breadcrumbs() ?></div>
+					<?php endif ?>
+				</div>
+			<?php endif ?>
 
 
 
-    <hr class="a11y" />
+			<hr class="a11y" />
+		</ul>
+	</div>
+	</div>
+</nav>
 </div></div><!-- /header -->
