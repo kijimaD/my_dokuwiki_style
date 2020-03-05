@@ -34,10 +34,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
 				<!-- サイドバー -->
 				<div class="col-3">
-					<!-- <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php																			   echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>"> -->
-
-
-
 					<?php if($showSidebar): ?>
 						<!-- ********** ASIDE ********** -->
 						<div id="dokuwiki__aside"><div class="pad aside include group">
