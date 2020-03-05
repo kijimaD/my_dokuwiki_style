@@ -21,7 +21,6 @@ if (!defined('DOKU_INC')) die();
             // get logo either out of the template images folder or data/media folder
             $logoSize = array();
             /* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
-	    $logo = tpl_getMediaFile(array('images/tree.png'), false, $logoSize);
 
             // display logo and wiki title in a link to the home page
             tpl_link(
