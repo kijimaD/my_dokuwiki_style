@@ -16,7 +16,6 @@ if (!defined('DOKU_INC')) die();
 
 		<!-- サブコンポーネント -->
 		<div class="container headings group">
-			<div class="">
 
 				<!-- brand -->
 				<h1 class="navbar-brand"><?php
@@ -53,12 +52,12 @@ if (!defined('DOKU_INC')) die();
 		</ul>
 
 		<!-- トップメニュー -->
-		<ul class="navbar-nav py-3 tools group">
+		<ul class="navbar-nav py-3">
 				<!-- USER TOOLS -->
 				<?php if ($conf['useacl']): ?>
 							<?php
 							if (!empty($_SERVER['REMOTE_USER'])) {
-								echo '<li class="user nav-item mx-2">';
+								echo '<li class="nav-item mx-2">';
 								tpl_userinfo(); /* 'Logged in as ...' */
 								echo '</li>';
 							}
