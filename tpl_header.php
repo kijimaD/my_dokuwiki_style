@@ -54,25 +54,45 @@ if (!defined('DOKU_INC')) die();
 						<?php if ($conf['useacl']): ?>
 							<?php
 							if (!empty($_SERVER['REMOTE_USER'])) {
-							echo $_SERVER['REMOTE_USER'];
+								echo $_SERVER['REMOTE_USER'];
+							}else{
+								echo 'N/A';
 							}
-						?>
+							?>
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="action recent nav-item mx-2" href="/doku.php?id=start&amp;do=recent" title="最近の変更 [r]" rel="nofollow" accesskey="r">最近の変更</a>
-						<a class="action media nav-item mx-2" href="/doku.php?id=start&amp;do=media&amp;ns=" title="メディアマネージャー" rel="nofollow">メディアマネージャー</a>
-						<a class="action index nav-item mx-2" href="/doku.php?id=start&amp;do=index" title="サイトマップ [x]" accesskey="x">サイトマップ</a>
-					</div>
-				</li>
-			<?php endif ?>
 
-			<!-- SITE TOOLS -->
-			<div id="dokuwiki__sitetools">
-				<?php tpl_searchform(); ?>
-				<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-				<ul>
-					<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-				</ul>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<?php
+						$items = (new \dokuwiki\Menu\UserMenu())->getItems();
+						foreach($items as $item) {
+							echo '<a class="nav-item mx-2" href="'.$item->getLink().'" title="'.$item->getTitle().'">'
+							   . $item->getLabel()
+							   . '</a>';
+						}
+						?>
+					</div>
+
+				</li>
+						<?php endif ?>
+
+						<?php
+						$items = (new \dokuwiki\Menu\PageMenu())->getItems();
+						foreach($items as $item) {
+							echo '<li>'
+								.'<a href="'.$item->getLink().'" title="'.$item->getTitle().'">'
+								.'<span class="icon">'.inlineSVG($item->getSvg()).'</span>'
+							   . '<span class="a11y">'.$item->getLabel().'</span>'
+							   . '</a></li>';
+						}
+						?>
+
+						<!-- SITE TOOLS -->
+						<div id="dokuwiki__sitetools">
+
+							<form action="/dokuwiki/doku.php?id=start" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" /><input type="hidden" name="id" value="start" /><div class="no"><input name="q" type="text" class="edit" title="[F]" accesskey="f" placeholder="検索" autocomplete="on" id="qsearch__in" value="" /><button value="1" type="submit" title="検索">検索</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>				<form action="/dokuwiki/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="start" /><input type="hidden" name="sectok" value="593b4d33efac823fb605470244d438f6" /><select name="do" class="edit quickselect" title="ツール"><option value="">ツール</option><optgroup label="ページ用ツール"><option value="edit">文書の編集</option><option value="revisions">以前のリビジョン</option><option value="backlink">バックリンク</option></optgroup><optgroup label="サイト用ツール"><option value="recent">最近の変更</option><option value="media">メディアマネージャー</option><option value="index">サイトマップ</option></optgroup><optgroup label="ユーザ用ツール"><option value="profile">ユーザー情報の更新</option><option value="admin">管理</option><option value="logout">ログアウト</option></optgroup></select><button type="submit">&gt;</button></div></form></div>
+
+				<?php /*tpl_searchform();*/ ?>
+				<?php /*echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']);*/ ?>
 			</div>
 
 			<!-- BREADCRUMBS -->
