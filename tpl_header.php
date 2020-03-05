@@ -17,19 +17,18 @@ if (!defined('DOKU_INC')) die();
 		<!-- サブコンポーネント -->
 		<div class="container headings group">
 
-				<!-- brand -->
-				<h1 class="navbar-brand"><?php
-										 // get logo either out of the template images folder or data/media folder
-										 $logoSize = array();
-										 /* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
-
-										 // display logo and wiki title in a link to the home page
-										 tpl_link(
-											 wl(),
-											 '<img src="'.$logo.'" '.$logoSize[3].' alt="" style="width:100px;"/> <span>'.$conf['title'].'</span>',
-											 'accesskey="h" title="[H]"'
-										 );
-										 ?></h1>
+			<!-- ブランド -->
+			<?php
+			// get logo either out of the template images folder or data/media folder
+			$logoSize = array();
+			/* $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/tree.png'), false, $logoSize); */
+			// display logo and wiki title in a link to the home page
+			tpl_link(
+				wl(),
+				'<a class="navbar-brand" style="font-weight:900;">'.$conf['title'].'</a>',
+				'accesskey="h" title="[H]"'
+			);
+			?>
 
 				<!-- タグライン？ -->
 				<?php if ($conf['tagline']): ?>
@@ -53,24 +52,36 @@ if (!defined('DOKU_INC')) die();
 
 		<!-- トップメニュー -->
 		<ul class="navbar-nav py-3">
-				<!-- USER TOOLS -->
-				<?php if ($conf['useacl']): ?>
-							<?php
-							if (!empty($_SERVER['REMOTE_USER'])) {
-								echo '<li class="nav-item mx-2">';
-								tpl_userinfo(); /* 'Logged in as ...' */
-								echo '</li>';
-							}
-							echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
-							?>
-				<?php endif ?>
+			<!-- USER TOOLS -->
+			<?php if ($conf['useacl']): ?>
+				<?php
+				if (!empty($_SERVER['REMOTE_USER'])) {
+					echo '<li class="nav-item mx-2">';
+					tpl_userinfo(); /* 'Logged in as ...' */
+					echo '</li>';
+				}
+				/* echo (new \dokuwiki\Menu\UserMenu())->getListItems('action '); */
+				/* foreachが効かない
+				$items = (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+				   foreach ($items as $item) {
+				   echo '<li>'
+				   .'<a href="'.$item->getLink().'">'
+				   .'</a></li>';
+				   }
+				*/
+				?>
+				<li class="action recent nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=recent" title="最近の変更 [r]" rel="nofollow" accesskey="r">最近の変更</a></li>
+				<li class="action media nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=media&amp;ns=" title="メディアマネージャー" rel="nofollow">メディアマネージャー</a></li>
+				<li class="action index nav-item mx-2"><a href="/dokuwiki/doku.php?id=start&amp;do=index" title="サイトマップ [x]" accesskey="x">サイトマップ</a></li>
+	</div>
+			<?php endif ?>
 
 				<!-- SITE TOOLS -->
 				<div id="dokuwiki__sitetools">
 					<?php tpl_searchform(); ?>
-					<div class="mobileTools">
-						<?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-					</div>
+					<!-- <div class="mobileTools">
+						 <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+						 </div> -->
 					<ul>
 						<?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
 					</ul>
