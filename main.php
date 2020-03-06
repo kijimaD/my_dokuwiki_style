@@ -33,11 +33,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 			<div class="row">
 
 				<!-- サイドバー -->
-				<div class="col-3">
+				<div class="col-2">
 					<?php if($showSidebar): ?>
 						<!-- ********** ASIDE ********** -->
 						<div id="dokuwiki__aside"><div class="pad aside include group">
-							<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+							<!-- <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3> -->
 							<div class="content"><div class="group">
 								<?php tpl_flush() ?>
 								<?php tpl_includeFile('sidebarheader.html') ?>
@@ -49,12 +49,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				</div>
 
 				<!-- コンテンツ -->
-				<div class="col-9">
+				<div class="col-8">
 					<!-- ********** CONTENT ********** -->
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
 
-						<div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+						<div class="pageId text-secondary"><?php echo hsc($ID) ?></div>
 
 						<div class="page group">
 							<?php tpl_flush() ?>
@@ -74,21 +74,22 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				<hr class="a11y" />
 
 				<!-- PAGE ACTIONS -->
+				<div class="col-2">
 				<div id="dokuwiki__pagetools">
-					<h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+					<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
 					<div class="tools">
 						<ul>
 							<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
 						</ul>
 					</div>
 				</div>
-
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
 				<?php include('tpl_footer.php') ?>
 			</div></div><!-- /site -->
 
 			<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 			<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
-		</div>
-		</div>
 	</body>
 </html>
