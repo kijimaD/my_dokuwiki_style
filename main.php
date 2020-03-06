@@ -75,9 +75,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
 				<!-- PAGE ACTIONS -->
 				<div class="col-2">
-					<div>
-						<?php tpl_toc() ?>
-					</div>
+					<?php tpl_toc() ?>
 				<div id="dokuwiki__pagetools">
 					<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
 					<div class="tools">
