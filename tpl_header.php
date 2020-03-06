@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die();
 	<nav class="navbar navbar-expand-md navbar-light">
 
 		<!-- サブコンポーネント -->
-		<div class="container headings group">
+		<div class="container">
 
 			<!-- ブランド ..ルートの指定方法がわからないのでphpを使う意味がない状態になっている。-->
 			<?php
