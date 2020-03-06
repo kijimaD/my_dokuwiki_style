@@ -8,11 +8,10 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<div id="dokuwiki__header"><div class="pad group">
     <?php tpl_includeFile('header.html') ?>
 
 	<!-- ナビゲーションバー -->
-	<nav class="navbar navbar-expand-md navbar-light sticky-top">
+	<nav class="navbar navbar-expand-md navbar-light">
 
 		<!-- サブコンポーネント -->
 		<div class="container headings group">
@@ -108,7 +107,7 @@ if (!defined('DOKU_INC')) die();
 							<form action="/dokuwiki/doku.php?id=start" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" />
 								<input type="hidden" name="id" value="start" /><div class="no">
 									<input name="q" type="text" class="edit" title="[F]" accesskey="f" placeholder="" autocomplete="on" id="qsearch__in" value="" />
-									<button value="1" type="submit" title="検索" class="btn btn-outline-secondary">検索</button><div id="qsearch__out" class="ajax_qsearch JSpopup">
+									<button value="1" type="submit" title="検索" class="btn">検索</button>
 									</div>
 								</div>
 							</form>
@@ -133,4 +132,4 @@ if (!defined('DOKU_INC')) die();
 	</div>
 		</div>
 	</nav>
-</div></div><!-- /header -->
+<!-- /header -->

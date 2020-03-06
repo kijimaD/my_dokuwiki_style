@@ -7,7 +7,7 @@
 if (!defined('DOKU_INC')) die();
 ?>
 
-<div class="py-4 bg-light">
+<div class="py-4 mt-4 bg-light">
 <div class="container text-center">
 <!-- ********** FOOTER ********** -->
 <div id="dokuwiki__footer"><div class="pad">
