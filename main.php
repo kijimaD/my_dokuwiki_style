@@ -33,7 +33,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 			<div class="row">
 
 				<!-- サイドバー -->
-				<div class="col-2">
+				<div class="col-lg-2">
 					<?php if($showSidebar): ?>
 						<!-- ********** ASIDE ********** -->
 						<div id="dokuwiki__aside"><div class="pad aside include group">
@@ -49,7 +49,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				</div>
 
 				<!-- コンテンツ -->
-				<div class="col-8">
+				<div class="col-lg-8">
 					<!-- ********** CONTENT ********** -->
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
@@ -73,7 +73,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				<hr class="a11y" />
 
 				<!-- PAGE ACTIONS -->
-				<div class="col-2">
+				<div class="col-lg-2">
 					<?php tpl_toc() ?>
 				<div id="dokuwiki__pagetools">
 					<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
