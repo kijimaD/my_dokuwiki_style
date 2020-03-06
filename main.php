@@ -54,8 +54,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
 
-						<div class="pageId text-secondary"><?php echo hsc($ID) ?></div>
-
+						<!-- <div class="pageId text-secondary"><?php echo hsc($ID) ?></div> -->
 						<div class="page group">
 							<?php tpl_flush() ?>
 							<?php tpl_includeFile('pageheader.html') ?>
