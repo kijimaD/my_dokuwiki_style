@@ -33,7 +33,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 			<div class="row">
 
 				<!-- サイドバー -->
-				<div class="col-lg-3">
+				<div class="col-lg-2">
 					<?php if($showSidebar): ?>
 						<!-- ********** ASIDE ********** -->
 						<div id="dokuwiki__aside"><div class="pad aside include group">
