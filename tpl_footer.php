@@ -14,7 +14,8 @@ if (!defined('DOKU_INC')) die();
 			</div>
 			<!-- ********** FOOTER ********** -->
 			<div class="col-8">
-				<div id="dokuwiki__footer" class="float-center"><div class="pad">
+				<div id="dokuwiki__footer" class="float-center text-secondary"><div class="pad">
+					<small>
 						<?php tpl_license(''); // license text ?>
 						<!-- <div class="buttons">
 							 <?php
@@ -32,7 +33,7 @@ if (!defined('DOKU_INC')) die();
 							 <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>><img
 							 src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
 							 </div> -->
-
+					</small>
 				</div></div><!-- /footer -->
 			</div>
 		</div>
