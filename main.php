@@ -33,7 +33,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 			<div class="row">
 
 				<!-- サイドバー -->
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<?php if($showSidebar): ?>
 						<!-- ********** ASIDE ********** -->
 						<div id="dokuwiki__aside"><div class="pad aside include group">
@@ -64,7 +64,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 							<?php tpl_includeFile('pagefooter.html') ?>
 						</div>
 
-						<div class="docInfo"><?php tpl_pageinfo() ?></div>
+						<div class="docInfo text-right text-secondary"><small><?php tpl_pageinfo() ?></small></div>
 
 						<?php tpl_flush() ?>
 					</div></div><!-- /content -->
@@ -74,15 +74,15 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
 				<!-- PAGE ACTIONS -->
 				<div class="col-lg-3">
-					<?php tpl_toc() ?>
-				<div id="dokuwiki__pagetools">
-					<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
-					<div class="tools">
-						<ul>
-							<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-						</ul>
+					<?php /*tpl_toc()*/ ?>
+					<div id="dokuwiki__pagetools">
+						<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
+						<div class="tools">
+							<ul>
+								<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+							</ul>
+						</div>
 					</div>
-				</div>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
