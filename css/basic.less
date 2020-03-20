@@ -65,12 +65,15 @@ h1 {
 }
 h2 {
     font-size: 1.5em;
-    margin: 1.2em 0 0.2em 0;
+    margin: 1.2em 0 0.4em 0;
     font-weight: 700;
-    padding: 0.1em 0.5em;
     color:black;
     background:transparent;
-	border-left: solid 3px black;
+}
+
+h2::before{
+	content: "■";
+	color:#ff3300;
 }
 
 h3 {
