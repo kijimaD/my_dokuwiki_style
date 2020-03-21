@@ -49,7 +49,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				</div>
 
 				<!-- コンテンツ -->
-				<div class="col-lg-6 shadow-lg pt-2 pb-4">
+				<div class="col-lg-6 shadow pt-2 pb-4">
 					<!-- ********** CONTENT ********** -->
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
