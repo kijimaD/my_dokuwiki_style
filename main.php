@@ -70,19 +70,19 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 					</div></div><!-- /content -->
 				</div>
 
-				<hr class="a11y" />
-
-				<!-- PAGE ACTIONS -->
-				<div class="col-lg-3">
-					<?php /*tpl_toc()*/ ?>
+				<div class="col-lg-1">
 					<div id="dokuwiki__pagetools">
-						<!-- <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3> -->
 						<div class="tools">
 							<ul>
 								<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
 							</ul>
 						</div>
 					</div>
+				</div>
+
+				<!-- PAGE ACTIONS -->
+				<div class="col-lg-2">
+					<?php /*tpl_toc()*/ ?>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->

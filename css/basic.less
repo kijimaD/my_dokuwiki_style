@@ -65,12 +65,15 @@ h1 {
 }
 h2 {
     font-size: 1.5em;
-    margin: 0 0 0.666em;
+    margin: 1.2em 0 0.4em 0;
     font-weight: 700;
-    padding: 0.5em 0.5em;
-    color:black;
+    color:#333;
     background:transparent;
-	border-left: solid 4px black;
+}
+
+h2::before{
+	content: "■";
+	color:#333;
 }
 
 h3 {
@@ -365,6 +368,7 @@ progress {
     margin: 0;
     vertical-align: middle;
     box-sizing: border-box;
+	max-width: 100%;
 }
 
 select {
@@ -491,4 +495,5 @@ textarea[readonly] {
     cursor: auto;
     opacity: .5;
     background-color: #eee;
+	width:100%;
 }
