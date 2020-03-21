@@ -126,8 +126,6 @@ if (!defined('DOKU_INC')) die();
 								 </div> -->
 						<?php endif ?>
 
-
-
 						<hr class="a11y" />
 			</ul>
 		</div>
