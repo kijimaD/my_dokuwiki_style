@@ -73,7 +73,7 @@ if (!defined('DOKU_INC')) die();
 						<?php endif ?>
 
 						<!-- ページメニュー -->
-						<li class="nav-item mx-2 dropdown">
+						<li class="nav-item mx-2 dropdown d-lg-none">
 							<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Page</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<?php
@@ -88,7 +88,7 @@ if (!defined('DOKU_INC')) die();
 						</li>
 
 						<!-- モバイルツール -->
-						<li class="nav-item mx-2 dropdown">
+						<li class="nav-item mx-2 dropdown d-lg-none">
 							<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Mobile</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<?php
