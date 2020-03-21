@@ -16,12 +16,14 @@ div.insitu-footnote {
 /*____________ footnotes at the bottom of the page ____________*/
 
 div.footnotes {
-    border-top: 1px solid @ini_border;
-    padding: .5em 0 0 0;
+    /* border-top: 1px solid @ini_border; */
+    border-top: 1px solid #d9d9d9;
+    padding: 0.4em 0 0 0;
     margin: 3em 0 0 0;
     clear: both;
 }
 div.footnotes div.fn {
+	margin: 0px 0px 1em 0px;
 }
 div.footnotes div.fn div.content {
     display: inline;

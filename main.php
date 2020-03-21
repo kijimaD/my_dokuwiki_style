@@ -49,7 +49,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 				</div>
 
 				<!-- コンテンツ -->
-				<div class="col-lg-6">
+				<div class="col-lg-6 shadow-lg pt-2 pb-4">
 					<!-- ********** CONTENT ********** -->
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
@@ -64,7 +64,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 							<?php tpl_includeFile('pagefooter.html') ?>
 						</div>
 
-						<div class="docInfo text-right text-secondary"><small><?php tpl_pageinfo() ?></small></div>
+						<div class="docInfo text-right text-secondary">
+							<small><?php tpl_pageinfo() ?></small>
+						</div>
 
 						<?php tpl_flush() ?>
 					</div></div><!-- /content -->
