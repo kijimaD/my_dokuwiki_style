@@ -82,7 +82,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
 				<!-- PAGE ACTIONS -->
 				<div class="col-lg-2">
-					<?php tpl_toc() ?>
+					<?php /*tpl_toc()*/ ?>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
