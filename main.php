@@ -33,7 +33,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 			<div class="row">
 
 				<!-- コンテンツ -->
-				<div class="col-lg-6 shadow pt-2 pb-4 order-lg-1">
+				<div class="col-lg-5 shadow pt-2 pb-4 order-lg-1">
 					<!-- ********** CONTENT ********** -->
 					<div id="dokuwiki__content"><div class="pad group">
 						<?php html_msgarea() ?>
