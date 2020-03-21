@@ -104,13 +104,13 @@ if (!defined('DOKU_INC')) die();
 
 						<!-- 検索 -->
 						<li class="nav-item mx-2">
-							<?php /*tpl_searchform();*/ ?>
-							<form action="/dokuwiki/doku.php?id=start" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" />
+								<?php /*tpl_searchform();*/ ?>
+							<form action="/doku.php?id=start" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" />
 								<input type="hidden" name="id" value="start" /><div class="no">
 									<input name="q" type="text" class="edit" title="[F]" accesskey="f" placeholder="" autocomplete="on" id="qsearch__in" value="" />
 									<button value="1" type="submit" title="検索" class="btn">検索</button>
 								</div>
-							</div>
+		</div>
 							</form>
 						</li>
 
