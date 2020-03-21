@@ -11,7 +11,7 @@ if (!defined('DOKU_INC')) die();
 <?php tpl_includeFile('header.html') ?>
 
 <!-- ナビゲーションバー -->
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light py-0">
 
 	<!-- サブコンポーネント -->
 	<div class="container">
