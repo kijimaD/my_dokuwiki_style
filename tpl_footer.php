@@ -7,14 +7,14 @@
 if (!defined('DOKU_INC')) die();
 ?>
 
-<div class="py-4 mt-4 bg-light">
+<footer class="mt-4">
 	<div class="container">
 		<div class="row">
-			<div class="col-2">
+			<div class="col-lg-3">
 			</div>
 			<!-- ********** FOOTER ********** -->
-			<div class="col-8">
-				<div id="dokuwiki__footer" class="float-center text-secondary"><div class="pad">
+			<div class="col-lg-5">
+				<div id="dokuwiki__footer" class="text-center text-secondary"><div class="pad">
 					<small>
 						<?php tpl_license(''); // license text ?>
 						<!-- <div class="buttons">
@@ -35,10 +35,12 @@ if (!defined('DOKU_INC')) die();
 							 </div> -->
 					</small>
 				</div></div><!-- /footer -->
+			</div><!-- col-7 -->
+			<div class="col-lg-3">
 			</div>
-		</div>
-	</div>
-</div>
+		</div><!-- row -->
+	</div><!-- container -->
+</footer>
 
 <?php
 tpl_includeFile('footer.html');
