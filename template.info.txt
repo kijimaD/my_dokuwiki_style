@@ -1,7 +1,7 @@
 base     dokuwiki
-author   Anika Henke
-email    anika@selfthinker.org
-date     2015-07-26
-name     DokuWiki Template
-desc     DokuWiki's default template since 2012
-url      http://www.dokuwiki.org/template:dokuwiki
+author   Kijima Daigo
+email    norimaking777@gmail.com
+date     2020-03-28
+name     DokuWiki Template with Bootstrap4
+desc     non configable theme...
+url      https://wiki.a9ne.com
