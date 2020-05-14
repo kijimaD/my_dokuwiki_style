@@ -92,6 +92,7 @@ img.media {
 }
 img.medialeft {
     margin: .2em 1em .2em 0;
+    clear: both;
 }
 img.mediaright {
     margin: .2em 0 .2em 1em;
